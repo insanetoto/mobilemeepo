@@ -1,17 +1,24 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      用户中心
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+
     <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
+      <ion-label stacked >用户名</ion-label>
+      <ion-input type="text" [(ngModel)]="user.username"></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label stacked >密码</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+
   </ion-list>
+  <button ion-button full (click)="showFill()" pandding>登录</button>
 </ion-content>
