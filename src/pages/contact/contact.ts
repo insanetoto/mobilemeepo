@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
-import { LoadingController } from 'ionic-angular';
+import { NavController ,LoadingController,ToastController,ModalController} from 'ionic-angular';
+
+import { regsterPage } from '../contact/regster';
 
 
 @Component({
@@ -10,18 +11,38 @@ import { LoadingController } from 'ionic-angular';
 })
 export class ContactPage {
 
-  constructor(public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController,
+  			  public loadingCtrl: LoadingController,
+  			  private toastCtrl: ToastController,
+          private modalCtrl: ModalController
+  			 ){
   	this.user ={};
   	this.user.username="";
   	this.user.password="";
   }
 
-  showFill(){
-  	let loader = this.loadingCtrl.create({
-      content: "Please wait...",
-      duration: 3000
-    });
-    loader.present();
+  login(){
+  	if(this.user.username==''){
+  		
+  		let toastUserNameError = this.toastCtrl.create({
+  			message: '用户名格式不正确',
+		    duration: 3000,
+		    position: 'top'
+  		});
+  		toastUserNameError.present();
+  	}
+  	else{
+  		let loader = this.loadingCtrl.create({
+	      content: "正在登录..",
+	      duration:3000,
+	    });
+	    loader.present();
+	    
+  	}
   }
 
+  openRegiterPage(){
+    let modal = this.modalCtrl.create(regsterPage);
+    modal.present();
+  }
 }

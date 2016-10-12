@@ -20,5 +20,14 @@
     </ion-item>
 
   </ion-list>
-  <button ion-button full (click)="showFill()" pandding>登录</button>
+  <ion-row pandding>
+    <ion-col>  
+        <button ion-button full (click)="login()">登录</button>
+    </ion-col>
+  </ion-row>
+  <ion-row pandding>
+    <ion-col>
+        <button  ion-button full  outline (click)="openRegiterPage()" >还没有账号？点击注册</button>
+    </ion-col>
+  </ion-row>
 </ion-content>
