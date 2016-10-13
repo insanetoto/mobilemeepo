@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RegsterPage } from '../regster/regster';
+
 
 import { NavController ,LoadingController,ToastController,ModalController} from 'ionic-angular';
 
-import { regsterPage } from '../contact/regster';
 
 
 @Component({
@@ -37,12 +38,11 @@ export class ContactPage {
 	      duration:3000,
 	    });
 	    loader.present();
-	    
   	}
   }
 
   openRegiterPage(){
-    let modal = this.modalCtrl.create(regsterPage);
+    let modal = this.modalCtrl.create(RegsterPage);
     modal.present();
   }
 }
